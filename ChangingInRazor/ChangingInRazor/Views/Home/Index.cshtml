@@ -1,0 +1,50 @@
+﻿@model IndexViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p>
+        @if (DateTime.Now.Hour < 15)
+        {
+            <a asp-controller="Home" asp-action="Privacy" asp-route-info="1">Privacy Policy</a>
+        }
+
+    </p>
+</div>
+
+
+<div class="row">
+    @foreach (var product in Model.Products)
+    {
+        <div class="col-3">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-header">
+                        @product.Name
+                    </h3>
+                    <p>@product.Price ( @product.Description )</p>
+                </div>
+            </div>
+
+        </div>
+    }
+
+</div>
+
+@*<div>
+    <ul class="pagination">
+
+        @for (int i = 1; i <= Model.PageInfoModel.TotalPages; i++)
+        {
+            <li class="page-item"><a class="page-link" href="#">@i</a></li>
+        }
+
+
+
+    </ul>
+</div>*@
+
+<div page-model="@Model.PageInfoModel" page-action="Index"></div>

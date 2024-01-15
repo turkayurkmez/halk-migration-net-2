@@ -63,6 +63,11 @@ cities.ToList().ForEach(e => Console.WriteLine(e.City));
 List<string> addresses = new List<string>() { "Sümer mh.", "Bağlar", "Hamam yolu" };
 var result = addresses.FirstOrDefault(a => a.StartsWith("A"), "Bulunamadı!");
 Console.WriteLine(result);
+var firstOrNegative = collection.FirstOrDefault(c => c > 10, -1);
+Console.WriteLine(firstOrNegative);
+
+var firstEmployee = employees.First();
+firstEmployee.BirthDate = new DateOnly(1980, 7, 1);
 
 
 
